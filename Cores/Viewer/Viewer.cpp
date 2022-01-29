@@ -1,6 +1,8 @@
 #include<iostream>
 #include "Utilities/ArgsParser.h"
 #include "Utilities/Type.h"
+
+#include "Graphics/GlApp.h"
 using namespace PhysX;
 
 inline std::unique_ptr<ArgsParser> BuildArgsParser()
@@ -20,5 +22,7 @@ int main(int argc, char *argv[])
 	const auto output = std::any_cast<std::string>(parser->getValueByName("output"));
 	const auto rate = std::any_cast<uint>(parser->getValueByName("rate"));
 
+	auto glApp = std::make_unique<GlApp>(800, 600, "syc");
+	glApp->run();
 	return 0;
 }
