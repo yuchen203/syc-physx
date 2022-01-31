@@ -36,10 +36,41 @@ GlApp::GlApp(const int width, const int height, const std::string &title) :
 
 void GlApp::run()
 {
+	initialize();
 	while (!glfwWindowShouldClose(_window)) {
+		clearBuffers();
 		//Swap buffers and poll IO events
 		glfwSwapBuffers(_window);
 		glfwPollEvents();
 	}
+}
+
+void GlApp::initialize()
+{
+	setCallbacks();
+}
+
+void GlApp::resize(const int width, const int height)
+{
+	_width = width;
+	_height = height;
+	glViewport(0, 0, width, height);
+}
+
+void GlApp::setCallbacks() const
+{
+	glfwSetFramebufferSizeCallback(_window, framebufferSizeCallback);
+}
+
+
+void GlApp::clearBuffers()const
+{
+	glClearColor(_bgColor[0], _bgColor[1], _bgColor[2], 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void GlApp::framebufferSizeCallback(GLFWwindow *window, int width, int height)
+{
+	_this->resize(width, height);
 }
 }

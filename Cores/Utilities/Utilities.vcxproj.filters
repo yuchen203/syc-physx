@@ -23,7 +23,7 @@
     <ClInclude Include="ArgsParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Type.h">
+    <ClInclude Include="Types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

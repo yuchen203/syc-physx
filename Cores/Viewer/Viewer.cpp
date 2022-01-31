@@ -1,6 +1,6 @@
 #include<iostream>
 #include "Utilities/ArgsParser.h"
-#include "Utilities/Type.h"
+#include "Utilities/Types.h"
 
 #include "Graphics/GlApp.h"
 using namespace PhysX;
